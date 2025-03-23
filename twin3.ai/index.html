@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Preserve and empowering Human experience in the AI era"/><meta property="og:title" content="twin3.ai"/><meta property="og:description" content="Preserve and empowering Human experience in the AI era"/><meta property="og:image" content="/logo.png"/><meta property="og:type" content="website"/><meta property="og:url" content="https://twin3.ai/"/><meta property="og:title" content="Twin3"/><meta property="og:description" content="Preserve and empowering Human experience in the AI era"/><meta property="og:image" content="/logo.png"/><meta property="twitter:card" content="summary_large_image"/><meta property="twitter:url" content="https://twin3.ai/"/><meta property="twitter:title" content="Twin3"/><meta property="twitter:description" content="Preserve and empowering Human experience in the AI era"/><meta property="twitter:image" content="/logo.png"/><link rel="manifest" href="manifest.json"/><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/><link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet"/><link href="https://unpkg.com/highlightjs@9.16.2/styles/tomorrow-night-bright.css" rel="stylesheet"/><script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  // 重定向視頻和圖片到原始網站
+  const originalElements = document.querySelectorAll('video source, img');
+  originalElements.forEach(element => {
+    const src = element.getAttribute('src');
+    if (src && (
+        src.includes('/assets/img/v2.mp4') || 
+        src.includes('/assets/img/v4.mp4') ||
+        src.includes('/assets/img/logo.svg') ||
+        src.includes('/assets/img/1.png') ||
+        src.includes('/assets/img/2.png') ||
+        src.includes('/assets/img/3.png') ||
+        src.includes('/assets/img/s1.png') ||
+        src.includes('/assets/img/s2.png') ||
+        src.includes('/assets/img/s3.png') ||
+        src.includes('/assets/img/twitter.png') ||
+        src.includes('/assets/img/wrapcast.png') ||
+        src.includes('/assets/img/open%20sea.png')
+    )) {
+      const newSrc = 'https://twin3.ai' + src;
+      element.setAttribute('src', newSrc);
+    }
+  });
+
+  // 監聽動態加載的元素
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes && mutation.addedNodes.length > 0) {
+        for (let i = 0; i < mutation.addedNodes.length; i++) {
+          const newNode = mutation.addedNodes[i];
+          if (newNode.nodeType === 1) { // ELEMENT_NODE
+            const sources = newNode.querySelectorAll('video source, img');
+            sources.forEach(element => {
+              const src = element.getAttribute('src');
+              if (src && (
+                  src.includes('/assets/img/v2.mp4') || 
+                  src.includes('/assets/img/v4.mp4') ||
+                  src.includes('/assets/img/logo.svg') ||
+                  src.includes('/assets/img/1.png') ||
+                  src.includes('/assets/img/2.png') ||
+                  src.includes('/assets/img/3.png') ||
+                  src.includes('/assets/img/s1.png') ||
+                  src.includes('/assets/img/s2.png') ||
+                  src.includes('/assets/img/s3.png') ||
+                  src.includes('/assets/img/twitter.png') ||
+                  src.includes('/assets/img/wrapcast.png') ||
+                  src.includes('/assets/img/open%20sea.png')
+              )) {
+                const newSrc = 'https://twin3.ai' + src;
+                element.setAttribute('src', newSrc);
+              }
+            });
+
+            // 處理點擊事件
+            if (newNode.tagName === 'BUTTON' || newNode.tagName === 'A') {
+              newNode.addEventListener('click', function(e) {
+                console.log('Element clicked:', this);
+                // 如果是主頁上的按鈕，模擬原網站行為
+                if (this.innerText && (this.innerText.includes('Start now') || this.innerText.includes('Coming soon'))) {
+                  e.preventDefault();
+                  alert('This functionality requires connection to the original twin3.ai server');
+                }
+              });
+            }
+          }
+        }
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+  // 處理現有按鈕點擊
+  document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+      console.log('Element clicked:', e.target);
+      // 如果是主頁上的按鈕，模擬原網站行為
+      if (e.target.innerText && (e.target.innerText.includes('Start now') || e.target.innerText.includes('Coming soon'))) {
+        e.preventDefault();
+        alert('This functionality requires connection to the original twin3.ai server');
+      }
+    }
+  });
+});
+</script>
+<title>Twin3</title><script defer="defer" src="static/js/main.ce3ada1a.js"></script><link href="static/css/main.6a826e2c.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
