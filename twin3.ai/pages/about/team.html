@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="icon" href="../../favicon.ico"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="description" content="Twin3 Team - Meet the people behind Twin3"/>
+  <meta property="og:title" content="Twin3 Team"/>
+  <meta property="og:description" content="Twin3 Team - Meet the people behind Twin3"/>
+  <meta property="og:image" content="/logo.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://twin3.ai/about/team"/>
+  <link rel="manifest" href="../../manifest.json"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet"/>
+  <link href="https://unpkg.com/highlightjs@9.16.2/styles/tomorrow-night-bright.css" rel="stylesheet"/>
+  <title>Twin3 Team</title>
+  <link href="../../static/css/main.6a826e2c.css" rel="stylesheet"/>
+  <link href="../../static/css/navigation.css" rel="stylesheet"/>
+  <script defer="defer" src="../../static/js/main.ce3ada1a.js"></script>
+  <script defer="defer" src="../../static/js/navigation.js"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .team-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+    .team-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .team-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff, #888888);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .team-header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    .team-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+    .team-group {
+      margin-bottom: 40px;
+    }
+    .team-group h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    .team-group h2:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #fff, transparent);
+    }
+    .team-members {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .team-member {
+      background: rgba(20, 20, 25, 0.5);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    .member-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: linear-gradient(45deg, #444, #111);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .member-photo span {
+      font-size: 3rem;
+      opacity: 0.2;
+    }
+    .member-name {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .member-title {
+      color: #aaa;
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .member-bio {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      opacity: 0.8;
+      flex-grow: 1;
+    }
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      .team-header h1 {
+        font-size: 2.5rem;
+      }
+      .team-header p {
+        font-size: 1rem;
+      }
+      .team-members {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- 導航欄將由JavaScript動態添加 -->
+
+    <div class="team-container">
+      <div class="team-header">
+        <h1>Our Team</h1>
+        <p>Meet the passionate individuals behind Twin3. Our diverse team combines expertise in AI, blockchain, philosophy, and human-centered design to create truly revolutionary experiences.</p>
+      </div>
+
+      <div class="team-groups">
+        <div class="team-group">
+          <h2>Leadership</h2>
+          <div class="team-members">
+            <div class="team-member">
+              <div class="member-photo"><span>EA</span></div>
+              <h3 class="member-name">Emily Adams</h3>
+              <div class="member-title">Co-Founder & CEO</div>
+              <p class="member-bio">Emily brings over 15 years of experience in AI ethics and human-centered design. Before Twin3, she led research initiatives at leading tech companies focusing on the human impact of emerging technologies.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">T</a>
+                <a href="#" class="social-link">L</a>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-photo"><span>DL</span></div>
+              <h3 class="member-name">David Liu</h3>
+              <div class="member-title">Co-Founder & CTO</div>
+              <p class="member-bio">David is a blockchain pioneer with extensive experience in decentralized identity systems. His previous work includes developing privacy-preserving protocols for major Web3 platforms.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">T</a>
+                <a href="#" class="social-link">G</a>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-photo"><span>SR</span></div>
+              <h3 class="member-name">Sophia Rodriguez</h3>
+              <div class="member-title">Chief Product Officer</div>
+              <p class="member-bio">Sophia oversees product development at Twin3, ensuring our technology remains intuitive and impactful. Her background in cognitive science informs her approach to human-AI interaction design.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">T</a>
+                <a href="#" class="social-link">L</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-group">
+          <h2>Engineering</h2>
+          <div class="team-members">
+            <div class="team-member">
+              <div class="member-photo"><span>MK</span></div>
+              <h3 class="member-name">Michael Kim</h3>
+              <div class="member-title">Lead Blockchain Engineer</div>
+              <p class="member-bio">Michael specializes in zero-knowledge proofs and secure multi-party computation. He leads the development of our Trust Network infrastructure.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">G</a>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-photo"><span>AP</span></div>
+              <h3 class="member-name">Aisha Patel</h3>
+              <div class="member-title">AI Systems Architect</div>
+              <p class="member-bio">Aisha designs the AI systems that power the Twin Matrix. Her expertise in machine learning and cognitive modeling enables our platform to understand and represent human traits accurately.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">T</a>
+                <a href="#" class="social-link">L</a>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-photo"><span>JT</span></div>
+              <h3 class="member-name">James Torres</h3>
+              <div class="member-title">Frontend Lead</div>
+              <p class="member-bio">James crafts the user interfaces that make Twin3 accessible and engaging. He's passionate about creating digital experiences that feel natural and intuitive.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">G</a>
+                <a href="#" class="social-link">D</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-group">
+          <h2>Research & Philosophy</h2>
+          <div class="team-members">
+            <div class="team-member">
+              <div class="member-photo"><span>NN</span></div>
+              <h3 class="member-name">Dr. Nina Novak</h3>
+              <div class="member-title">Head of Research</div>
+              <p class="member-bio">Dr. Novak leads our research initiatives, exploring the philosophical and ethical dimensions of digital identity and human-AI collaboration.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">T</a>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="member-photo"><span>RO</span></div>
+              <h3 class="member-name">Dr. Robert Okafor</h3>
+              <div class="member-title">Digital Ethics Specialist</div>
+              <p class="member-bio">Robert's work focuses on ensuring that our technology upholds the highest ethical standards. He previously advised major tech companies on responsible AI development.</p>
+              <div class="member-social">
+                <a href="#" class="social-link">L</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

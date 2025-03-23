@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="icon" href="../../favicon.ico"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="description" content="About Twin3 - Preserve and empowering Human experience in the AI era"/>
+  <meta property="og:title" content="About Twin3"/>
+  <meta property="og:description" content="About Twin3 - Preserve and empowering Human experience in the AI era"/>
+  <meta property="og:image" content="/logo.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://twin3.ai/about"/>
+  <link rel="manifest" href="../../manifest.json"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet"/>
+  <link href="https://unpkg.com/highlightjs@9.16.2/styles/tomorrow-night-bright.css" rel="stylesheet"/>
+  <title>About Twin3</title>
+  <link href="../../static/css/main.6a826e2c.css" rel="stylesheet"/>
+  <link href="../../static/css/navigation.css" rel="stylesheet"/>
+  <script defer="defer" src="../../static/js/main.ce3ada1a.js"></script>
+  <script defer="defer" src="../../static/js/navigation.js"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+    .about-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .about-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff, #888888);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .about-header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    .about-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+    .about-card {
+      background: rgba(20, 20, 25, 0.5);
+      border-radius: 16px;
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .about-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    .about-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .about-card h2:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #fff, transparent);
+    }
+    .about-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+    .about-card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .about-card a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      .about-header h1 {
+        font-size: 2.5rem;
+      }
+      .about-header p {
+        font-size: 1rem;
+      }
+      .about-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- 導航欄將由JavaScript動態添加 -->
+
+    <div class="about-container">
+      <div class="about-header">
+        <h1>About Twin3</h1>
+        <p>Twin3 is dedicated to preserving and empowering the human experience in the AI era. We believe in creating technology that augments humanity rather than replacing it.</p>
+      </div>
+
+      <div class="about-cards">
+        <div class="about-card">
+          <h2>News</h2>
+          <p>Stay updated with the latest developments, achievements, and announcements from the Twin3 team. Our journey is constantly evolving as we push the boundaries of human-AI collaboration.</p>
+          <a href="news.html">Read Latest Updates</a>
+        </div>
+
+        <div class="about-card">
+          <h2>Team</h2>
+          <p>Meet the passionate individuals behind Twin3. Our diverse team combines expertise in AI, blockchain, philosophy, and human-centered design to create truly revolutionary experiences.</p>
+          <a href="team.html">Meet Our Team</a>
+        </div>
+
+        <div class="about-card">
+          <h2>Join Us</h2>
+          <p>Become part of our mission to shape the future of human experience in the digital age. We're always looking for talented people who share our vision and values.</p>
+          <a href="join-us.html">View Opportunities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 
