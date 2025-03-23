@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="icon" href="../../favicon.ico"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="description" content="Twin3 News - Latest updates and developments"/>
+  <meta property="og:title" content="Twin3 News"/>
+  <meta property="og:description" content="Twin3 News - Latest updates and developments"/>
+  <meta property="og:image" content="/logo.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://twin3.ai/about/news"/>
+  <link rel="manifest" href="../../manifest.json"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet"/>
+  <link href="https://unpkg.com/highlightjs@9.16.2/styles/tomorrow-night-bright.css" rel="stylesheet"/>
+  <title>Twin3 News</title>
+  <link href="../../static/css/main.6a826e2c.css" rel="stylesheet"/>
+  <link href="../../static/css/navigation.css" rel="stylesheet"/>
+  <script defer="defer" src="../../static/js/main.ce3ada1a.js"></script>
+  <script defer="defer" src="../../static/js/navigation.js"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .news-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+    .news-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .news-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff, #888888);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .news-header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    .news-items {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .news-item {
+      background: rgba(20, 20, 25, 0.5);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .news-item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, #ffffff, transparent);
+    }
+    .news-date {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 15px;
+      font-family: 'Courier New', monospace;
+    }
+    .news-item h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .news-item p {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    .news-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .news-tag {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ddd;
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      .news-header h1 {
+        font-size: 2.5rem;
+      }
+      .news-header p {
+        font-size: 1rem;
+      }
+      .news-item h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- 導航欄將由JavaScript動態添加 -->
+
+    <div class="news-container">
+      <div class="news-header">
+        <h1>Latest News</h1>
+        <p>Stay updated with the latest developments, achievements, and announcements from the Twin3 team. Our journey is constantly evolving as we push the boundaries of human-AI collaboration.</p>
+      </div>
+
+      <div class="news-items">
+        <div class="news-item">
+          <div class="news-date">March 20, 2025</div>
+          <h2>Twin3 Launches Revolutionary Human-AI Trust Network</h2>
+          <p>We're excited to announce the launch of our Human Trust Network, a groundbreaking system that verifies authentic human identity on the blockchain while preserving privacy. This network creates a foundation of trust for human-AI collaboration.</p>
+          <p>The Trust Network employs zero-knowledge proofs to enable identity verification without revealing sensitive personal information, ensuring both security and privacy for all participants.</p>
+          <div class="news-tags">
+            <span class="news-tag">Launch</span>
+            <span class="news-tag">Trust Network</span>
+            <span class="news-tag">Blockchain</span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">February 12, 2025</div>
+          <h2>Twin Matrix Alpha Testing Results Exceed Expectations</h2>
+          <p>After six months of rigorous alpha testing, the Twin Matrix has shown remarkable results in representing authentic human traits across physical, digital, social, and spiritual dimensions. Testers reported a 78% increase in meaningful digital interactions and a 65% improvement in AI personalization.</p>
+          <p>These results validate our approach to creating a truly representative digital identity that bridges the gap between human experience and AI systems.</p>
+          <div class="news-tags">
+            <span class="news-tag">Twin Matrix</span>
+            <span class="news-tag">Testing</span>
+            <span class="news-tag">Results</span>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-date">January 5, 2025</div>
+          <h2>Partnership Announced with Leading Web3 Platform</h2>
+          <p>Twin3 is thrilled to announce a strategic partnership with a prominent Web3 platform (to be named in coming weeks) that will accelerate the integration of our Twin Matrix technology into the decentralized ecosystem.</p>
+          <p>This collaboration will expand our reach and enable more users to benefit from enhanced human-centric AI interactions across the Web3 landscape.</p>
+          <div class="news-tags">
+            <span class="news-tag">Partnership</span>
+            <span class="news-tag">Web3</span>
+            <span class="news-tag">Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

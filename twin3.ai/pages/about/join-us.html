@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="icon" href="../../favicon.ico"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#000000"/>
+  <meta name="description" content="Join Twin3 - Career opportunities and open positions"/>
+  <meta property="og:title" content="Join Twin3"/>
+  <meta property="og:description" content="Join Twin3 - Career opportunities and open positions"/>
+  <meta property="og:image" content="/logo.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://twin3.ai/about/join-us"/>
+  <link rel="manifest" href="../../manifest.json"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet"/>
+  <link href="https://unpkg.com/highlightjs@9.16.2/styles/tomorrow-night-bright.css" rel="stylesheet"/>
+  <title>Join Twin3</title>
+  <link href="../../static/css/main.6a826e2c.css" rel="stylesheet"/>
+  <link href="../../static/css/navigation.css" rel="stylesheet"/>
+  <script defer="defer" src="../../static/js/main.ce3ada1a.js"></script>
+  <script defer="defer" src="../../static/js/navigation.js"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .join-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+    }
+    .join-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .join-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff, #888888);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .join-header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    .culture-section {
+      margin-bottom: 60px;
+      background: rgba(20, 20, 25, 0.5);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .culture-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .culture-item {
+      text-align: center;
+      padding: 20px;
+    }
+    .culture-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+    .culture-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .culture-item p {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+    .jobs-section {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .jobs-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .job-card {
+      background: rgba(20, 20, 25, 0.5);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .job-title {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    .job-department {
+      color: #aaa;
+      font-size: 1rem;
+    }
+    .job-type {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .job-description {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    .job-requirements {
+      margin-bottom: 25px;
+    }
+    .job-requirements h4 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    .job-requirements ul {
+      padding-left: 20px;
+    }
+    .job-requirements li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+    .job-apply-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .job-apply-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      .join-header h1 {
+        font-size: 2.5rem;
+      }
+      .join-header p {
+        font-size: 1rem;
+      }
+      .job-header {
+        flex-direction: column;
+      }
+      .job-type {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- 導航欄將由JavaScript動態添加 -->
+
+    <div class="join-container">
+      <div class="join-header">
+        <h1>Join Our Team</h1>
+        <p>Become part of our mission to shape the future of human experience in the digital age. We're looking for passionate individuals who share our vision of preserving humanity in the AI era.</p>
+      </div>
+
+      <div class="culture-section">
+        <h2>Our Culture</h2>
+        <p>At Twin3, we believe that building revolutionary technology requires an extraordinary team culture. Here's what you can expect when joining us:</p>
+        
+        <div class="culture-grid">
+          <div class="culture-item">
+            <div class="culture-icon">🔍</div>
+            <h3>Curiosity</h3>
+            <p>We encourage continuous learning and intellectual exploration.</p>
+          </div>
+          
+          <div class="culture-item">
+            <div class="culture-icon">🌱</div>
+            <h3>Growth</h3>
+            <p>Personal and professional development are central to our ethos.</p>
+          </div>
+          
+          <div class="culture-item">
+            <div class="culture-icon">🤝</div>
+            <h3>Collaboration</h3>
+            <p>We solve complex problems through diverse perspectives.</p>
+          </div>
+          
+          <div class="culture-item">
+            <div class="culture-icon">⚖️</div>
+            <h3>Balance</h3>
+            <p>We value work-life harmony and sustainable innovation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="jobs-section">
+        <h2>Open Positions</h2>
+        
+        <div class="job-card">
+          <div class="job-header">
+            <div>
+              <h3 class="job-title">Senior Blockchain Engineer</h3>
+              <div class="job-department">Engineering</div>
+            </div>
+            <div class="job-type">Full-time</div>
+          </div>
+          
+          <div class="job-description">
+            <p>We're looking for an experienced blockchain engineer to help build and scale our Human Trust Network. You'll be working on decentralized identity verification systems, zero-knowledge proof implementations, and secure multi-party computation protocols.</p>
+          </div>
+          
+          <div class="job-requirements">
+            <h4>Requirements</h4>
+            <ul>
+              <li>5+ years of experience in blockchain development</li>
+              <li>Strong knowledge of cryptographic protocols, especially zero-knowledge proofs</li>
+              <li>Experience with Ethereum, Solidity, and Web3.js</li>
+              <li>Understanding of decentralized identity systems (DID, VCs)</li>
+              <li>Passion for privacy-preserving technology</li>
+            </ul>
+          </div>
+          
+          <button class="job-apply-btn">Apply Now</button>
+        </div>
+        
+        <div class="job-card">
+          <div class="job-header">
+            <div>
+              <h3 class="job-title">AI Research Scientist</h3>
+              <div class="job-department">Research</div>
+            </div>
+            <div class="job-type">Full-time</div>
+          </div>
+          
+          <div class="job-description">
+            <p>Join our research team to develop novel approaches for representing human traits in digital systems. You'll be exploring the intersection of AI, cognitive science, and digital identity to enhance the Twin Matrix technology.</p>
+          </div>
+          
+          <div class="job-requirements">
+            <h4>Requirements</h4>
+            <ul>
+              <li>PhD in Computer Science, AI, or related field</li>
+              <li>Research experience in machine learning, natural language processing, or computer vision</li>
+              <li>Publications in top-tier AI conferences (NeurIPS, ICML, ACL, etc.)</li>
+              <li>Interest in human-centered AI and the ethical implications of AI systems</li>
+              <li>Strong programming skills (Python, TensorFlow/PyTorch)</li>
+            </ul>
+          </div>
+          
+          <button class="job-apply-btn">Apply Now</button>
+        </div>
+        
+        <div class="job-card">
+          <div class="job-header">
+            <div>
+              <h3 class="job-title">Product Designer</h3>
+              <div class="job-department">Design</div>
+            </div>
+            <div class="job-type">Full-time</div>
+          </div>
+          
+          <div class="job-description">
+            <p>We're seeking a talented product designer to create intuitive, engaging interfaces for our Twin Matrix platform. You'll be responsible for designing experiences that make complex technology accessible and delightful to use.</p>
+          </div>
+          
+          <div class="job-requirements">
+            <h4>Requirements</h4>
+            <ul>
+              <li>3+ years of product design experience, preferably in tech</li>
+              <li>Strong portfolio showcasing UI/UX work</li>
+              <li>Proficiency with design tools (Figma, Sketch, etc.)</li>
+              <li>Experience designing for web and mobile platforms</li>
+              <li>Understanding of design systems and component-based design</li>
+              <li>Knowledge of user research and testing methodologies</li>
+            </ul>
+          </div>
+          
+          <button class="job-apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.job-apply-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('Thank you for your interest! This is a demo. In the real Twin3 application, this would open an application form.');
+      });
+    });
+  </script>
+</body>
+</html> 
