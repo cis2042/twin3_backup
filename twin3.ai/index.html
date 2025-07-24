@@ -1,30 +1,26 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Preserve and empowering Human experience in the AI era"/><meta property="og:title" content="twin3.ai"/><meta property="og:description" content="Preserve and empowering Human experience in the AI era"/><meta property="og:image" content="/logo.png"/><meta property="og:type" content="website"/><meta property="og:url" content="https://twin3.ai/"/><meta property="og:title" content="Twin3"/><meta property="og:description" content="Preserve and empowering Human experience in the AI era"/><meta property="og:image" content="/logo.png"/><meta property="twitter:card" content="summary_large_image"/><meta property="twitter:url" content="https://twin3.ai/"/><meta property="twitter:title" content="Twin3"/><meta property="twitter:description" content="Preserve and empowering Human experience in the AI era"/><meta property="twitter:image" content="/logo.png"/><link rel="manifest" href="manifest.json"/><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/><link href="https://fonts.cdnfonts.com/css/cursed-timer-ulil" rel="stylesheet"/><link href="https://unpkg.com/highlightjs@9.16.2/styles/tomorrow-night-bright.css" rel="stylesheet"/><script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
 window.addEventListener('DOMContentLoaded', function() {
-  // 为缺失的图片提供替代源
+  // 重定向視頻和圖片到原始網站
   const originalElements = document.querySelectorAll('video source, img');
   originalElements.forEach(element => {
     const src = element.getAttribute('src');
     if (src && (
         src.includes('/assets/img/v2.mp4') || 
         src.includes('/assets/img/v4.mp4') ||
-        src.includes('/assets/img/logo.svg')
+        src.includes('/assets/img/logo.svg') ||
+        src.includes('/assets/img/1.png') ||
+        src.includes('/assets/img/2.png') ||
+        src.includes('/assets/img/3.png') ||
+        src.includes('/assets/img/s1.png') ||
+        src.includes('/assets/img/s2.png') ||
+        src.includes('/assets/img/s3.png') ||
+        src.includes('/assets/img/twitter.png') ||
+        src.includes('/assets/img/wrapcast.png') ||
+        src.includes('/assets/img/open%20sea.png')
     )) {
       const newSrc = 'https://twin3.ai' + src;
       element.setAttribute('src', newSrc);
-    } else if (src && src.includes('/assets/img/twitter.png')) {
-      element.setAttribute('src', 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg');
-      element.style.filter = 'invert(1)';
-    } else if (src && src.includes('/assets/img/wrapcast.png')) {
-      element.setAttribute('src', 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/farcaster.svg');
-      element.style.filter = 'invert(1)';
-    } else if (src && (src.includes('/assets/img/open%20sea.png') || src.includes('/assets/img/open sea.png'))) {
-      element.setAttribute('src', 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/opensea.svg');
-      element.style.filter = 'invert(1)';
-    } else if (src && (src.includes('/assets/img/1.png') || src.includes('/assets/img/2.png') || src.includes('/assets/img/3.png'))) {
-      element.setAttribute('src', 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400');
-    } else if (src && (src.includes('/assets/img/s1.png') || src.includes('/assets/img/s2.png') || src.includes('/assets/img/s3.png'))) {
-      element.setAttribute('src', 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400');
     }
   });
 
@@ -41,23 +37,19 @@ window.addEventListener('DOMContentLoaded', function() {
               if (src && (
                   src.includes('/assets/img/v2.mp4') || 
                   src.includes('/assets/img/v4.mp4') ||
-                  src.includes('/assets/img/logo.svg')
+                  src.includes('/assets/img/logo.svg') ||
+                  src.includes('/assets/img/1.png') ||
+                  src.includes('/assets/img/2.png') ||
+                  src.includes('/assets/img/3.png') ||
+                  src.includes('/assets/img/s1.png') ||
+                  src.includes('/assets/img/s2.png') ||
+                  src.includes('/assets/img/s3.png') ||
+                  src.includes('/assets/img/twitter.png') ||
+                  src.includes('/assets/img/wrapcast.png') ||
+                  src.includes('/assets/img/open%20sea.png')
               )) {
                 const newSrc = 'https://twin3.ai' + src;
                 element.setAttribute('src', newSrc);
-              } else if (src && src.includes('/assets/img/twitter.png')) {
-                element.setAttribute('src', 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg');
-                element.style.filter = 'invert(1)';
-              } else if (src && src.includes('/assets/img/wrapcast.png')) {
-                element.setAttribute('src', 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/farcaster.svg');
-                element.style.filter = 'invert(1)';
-              } else if (src && (src.includes('/assets/img/open%20sea.png') || src.includes('/assets/img/open sea.png'))) {
-                element.setAttribute('src', 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/opensea.svg');
-                element.style.filter = 'invert(1)';
-              } else if (src && (src.includes('/assets/img/1.png') || src.includes('/assets/img/2.png') || src.includes('/assets/img/3.png'))) {
-                element.setAttribute('src', 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400');
-              } else if (src && (src.includes('/assets/img/s1.png') || src.includes('/assets/img/s2.png') || src.includes('/assets/img/s3.png'))) {
-                element.setAttribute('src', 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400');
               }
             });
 
