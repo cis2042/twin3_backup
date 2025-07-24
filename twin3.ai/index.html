@@ -135,6 +135,12 @@ window.addEventListener('DOMContentLoaded', function() {
           airdropLink.textContent = 'AIRDROP';
           airdropLink.style.cssText = window.getComputedStyle(myTwinElement).cssText;
           
+          // 添加點擊事件監聽器
+          airdropLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showAirdropPassport();
+          });
+          
           // 複製類名和樣式
           if (myTwinElement.className) {
             airdropLink.className = myTwinElement.className;
@@ -205,6 +211,316 @@ window.addEventListener('DOMContentLoaded', function() {
   setTimeout(addAirdropLink, 500);
   setTimeout(addAirdropLink, 1000);
   setTimeout(addAirdropLink, 2000);
+
+  // Web3 Passport UI 函數
+  function showAirdropPassport() {
+    // 檢查是否已經存在 passport modal
+    if (document.getElementById('airdrop-passport-modal')) {
+      return;
+    }
+
+    // 創建 modal overlay
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'airdrop-passport-modal';
+    modalOverlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    `;
+
+    // 創建 passport container
+    const passportContainer = document.createElement('div');
+    passportContainer.style.cssText = `
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      border-radius: 20px;
+      padding: 40px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      border: 1px solid #333;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+    `;
+
+    // 關閉按鈕
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = '×';
+    closeButton.style.cssText = `
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    `;
+    closeButton.onmouseover = () => closeButton.style.opacity = '1';
+    closeButton.onmouseout = () => closeButton.style.opacity = '0.7';
+    closeButton.onclick = () => modalOverlay.remove();
+
+    // 標題
+    const title = document.createElement('h2');
+    title.textContent = 'Web3 Passport';
+    title.style.cssText = `
+      color: #fff;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+      font-family: 'Unbounded', sans-serif;
+    `;
+
+    // 副標題
+    const subtitle = document.createElement('p');
+    subtitle.textContent = 'Connect your accounts to unlock rewards and calculate your score';
+    subtitle.style.cssText = `
+      color: #a0a0a0;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 16px;
+    `;
+
+    // 總分顯示
+    const scoreContainer = document.createElement('div');
+    scoreContainer.style.cssText = `
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    `;
+
+    const scoreTitle = document.createElement('h3');
+    scoreTitle.textContent = 'Your Score';
+    scoreTitle.style.cssText = `
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    `;
+
+    const scoreValue = document.createElement('div');
+    scoreValue.id = 'passport-score';
+    scoreValue.textContent = '0';
+    scoreValue.style.cssText = `
+      color: #fff;
+      font-size: 48px;
+      font-weight: bold;
+      font-family: 'Unbounded', sans-serif;
+    `;
+
+    scoreContainer.appendChild(scoreTitle);
+    scoreContainer.appendChild(scoreValue);
+
+    // 認證選項數據
+    const authOptions = [
+      { name: 'Twitter', icon: '🐦', points: 100, connected: false, description: 'Verify your Twitter account' },
+      { name: 'Discord', icon: '💬', points: 80, connected: false, description: 'Join our Discord community' },
+      { name: 'GitHub', icon: '💻', points: 120, connected: false, description: 'Connect your GitHub profile' },
+      { name: 'Email', icon: '📧', points: 50, connected: false, description: 'Verify your email address' },
+      { name: 'Telegram', icon: '✈️', points: 60, connected: false, description: 'Join our Telegram channel' },
+      { name: 'Wallet', icon: '🔗', points: 150, connected: false, description: 'Connect your Web3 wallet' },
+      { name: 'NFT Holder', icon: '🖼️', points: 200, connected: false, description: 'Hold qualifying NFTs' },
+      { name: 'DeFi User', icon: '💎', points: 180, connected: false, description: 'Active DeFi participation' }
+    ];
+
+    // 認證選項容器
+    const authContainer = document.createElement('div');
+    authContainer.style.cssText = `
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    `;
+
+    let currentScore = 0;
+
+    authOptions.forEach((option, index) => {
+      const authItem = document.createElement('div');
+      authItem.style.cssText = `
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      `;
+
+      authItem.onmouseover = () => {
+        authItem.style.background = 'rgba(255, 255, 255, 0.1)';
+        authItem.style.borderColor = '#667eea';
+        authItem.style.transform = 'translateY(-2px)';
+      };
+      authItem.onmouseout = () => {
+        if (!option.connected) {
+          authItem.style.background = 'rgba(255, 255, 255, 0.05)';
+          authItem.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+          authItem.style.transform = 'translateY(0)';
+        }
+      };
+
+      const authHeader = document.createElement('div');
+      authHeader.style.cssText = `
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      `;
+
+      const authInfo = document.createElement('div');
+      authInfo.style.cssText = `
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      `;
+
+      const authIcon = document.createElement('span');
+      authIcon.textContent = option.icon;
+      authIcon.style.cssText = `
+        font-size: 24px;
+      `;
+
+      const authName = document.createElement('h4');
+      authName.textContent = option.name;
+      authName.style.cssText = `
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+      `;
+
+      const authPoints = document.createElement('span');
+      authPoints.textContent = '+' + option.points;
+      authPoints.style.cssText = `
+        color: #4ade80;
+        font-weight: bold;
+        font-size: 16px;
+      `;
+
+      const authDescription = document.createElement('p');
+      authDescription.textContent = option.description;
+      authDescription.style.cssText = `
+        color: #a0a0a0;
+        font-size: 14px;
+        margin: 0 0 15px 0;
+      `;
+
+      const authButton = document.createElement('button');
+      authButton.textContent = option.connected ? 'Connected ✓' : 'Connect';
+      authButton.style.cssText = `
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: ${option.connected ? '#4ade80' : 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)'};
+        color: white;
+      `;
+
+      if (!option.connected) {
+        authButton.onmouseover = () => {
+          authButton.style.transform = 'translateY(-1px)';
+          authButton.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.4)';
+        };
+        authButton.onmouseout = () => {
+          authButton.style.transform = 'translateY(0)';
+          authButton.style.boxShadow = 'none';
+        };
+
+        authButton.onclick = (e) => {
+          e.stopPropagation();
+          // 模擬連接過程
+          authButton.textContent = 'Connecting...';
+          authButton.style.background = '#6b7280';
+          authButton.disabled = true;
+
+          setTimeout(() => {
+            option.connected = true;
+            currentScore += option.points;
+            authButton.textContent = 'Connected ✓';
+            authButton.style.background = '#4ade80';
+            authButton.disabled = false;
+            
+            // 更新分數顯示
+            document.getElementById('passport-score').textContent = currentScore;
+            
+            // 更新項目樣式
+            authItem.style.background = 'rgba(74, 222, 128, 0.1)';
+            authItem.style.borderColor = '#4ade80';
+            
+            // 添加連接成功效果
+            const successEffect = document.createElement('div');
+            successEffect.style.cssText = `
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(45deg, transparent, rgba(74, 222, 128, 0.2), transparent);
+              animation: shimmer 0.8s ease-in-out;
+              pointer-events: none;
+            `;
+            authItem.appendChild(successEffect);
+            setTimeout(() => successEffect.remove(), 800);
+          }, 1500);
+        };
+      }
+
+      authInfo.appendChild(authIcon);
+      authInfo.appendChild(authName);
+      authHeader.appendChild(authInfo);
+      authHeader.appendChild(authPoints);
+
+      authItem.appendChild(authHeader);
+      authItem.appendChild(authDescription);
+      authItem.appendChild(authButton);
+
+      authContainer.appendChild(authItem);
+    });
+
+    // 添加 CSS 動畫
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // 組裝 modal
+    passportContainer.appendChild(closeButton);
+    passportContainer.appendChild(title);
+    passportContainer.appendChild(subtitle);
+    passportContainer.appendChild(scoreContainer);
+    passportContainer.appendChild(authContainer);
+
+    modalOverlay.appendChild(passportContainer);
+    document.body.appendChild(modalOverlay);
+
+    // 點擊外部關閉
+    modalOverlay.onclick = (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.remove();
+      }
+    };
+  }
 
   // 處理現有按鈕點擊
   document.addEventListener('click', function(e) {
