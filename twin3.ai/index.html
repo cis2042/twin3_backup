@@ -77,42 +77,134 @@ window.addEventListener('DOMContentLoaded', function() {
 
   // 添加 Airdrop 導航連結
   function addAirdropLink() {
-    // 等待 React 渲染完成
-    setTimeout(() => {
-      const nav = document.querySelector('nav.flex.items-center.justify-between');
+    console.log('Attempting to add Airdrop link...');
+    
+    // 嘗試多種選擇器來找到導航區域
+    const selectors = [
+      'nav',
+      '[role="navigation"]',
+      'header nav',
+      'div[class*="nav"]',
+      'div[class*="header"]'
+    ];
+    
+    let nav = null;
+    for (const selector of selectors) {
+      nav = document.querySelector(selector);
       if (nav) {
-        // 查找包含導航連結的容器
-        const navLinks = nav.querySelector('div:last-child');
-        if (navLinks) {
-          // 查找 MY TWIN 連結
-          const myTwinLink = Array.from(navLinks.children).find(child => 
-            child.textContent && child.textContent.includes('MY TWIN')
-          );
-          
-          if (myTwinLink) {
-            // 創建 Airdrop 連結
-            const airdropLink = document.createElement('a');
-            airdropLink.href = '#airdrop';
-            airdropLink.textContent = 'AIRDROP';
-            airdropLink.className = myTwinLink.className; // 使用相同的樣式類
-            airdropLink.style.cssText = myTwinLink.style.cssText; // 複製內聯樣式
-            
-            // 在 MY TWIN 後面插入 Airdrop 連結
-            myTwinLink.parentNode.insertBefore(airdropLink, myTwinLink.nextSibling);
-            
-            console.log('Airdrop link added successfully');
+        console.log(`Found navigation with selector: ${selector}`);
+        break;
+      }
+    }
+    
+    if (!nav) {
+      // 如果找不到導航，嘗試查找包含 MY TWIN 文字的元素
+      const allElements = document.querySelectorAll('*');
+      let navContainer = null;
+      
+      for (const element of allElements) {
+        if (element.textContent && element.textContent.includes('MY TWIN')) {
+          navContainer = element.closest('div, nav, header');
+          if (navContainer) {
+            console.log('Found navigation container via MY TWIN text');
+            nav = navContainer;
+            break;
           }
         }
       }
-    }, 1000); // 延遲 1 秒等待頁面完全載入
+    }
+    
+    if (nav) {
+      // 查找 MY TWIN 連結
+      const myTwinElement = Array.from(nav.querySelectorAll('*')).find(element => 
+        element.textContent && element.textContent.trim() === 'MY TWIN'
+      );
+      
+      if (myTwinElement) {
+        console.log('Found MY TWIN element');
+        
+        // 檢查是否已經存在 Airdrop 連結
+        const existingAirdrop = Array.from(nav.querySelectorAll('*')).find(element => 
+          element.textContent && element.textContent.includes('AIRDROP')
+        );
+        
+        if (!existingAirdrop) {
+          // 創建 Airdrop 連結
+          const airdropLink = document.createElement('a');
+          airdropLink.href = '#airdrop';
+          airdropLink.textContent = 'AIRDROP';
+          airdropLink.style.cssText = window.getComputedStyle(myTwinElement).cssText;
+          
+          // 複製類名和樣式
+          if (myTwinElement.className) {
+            airdropLink.className = myTwinElement.className;
+          }
+          
+          // 嘗試插入到 MY TWIN 後面
+          if (myTwinElement.parentNode) {
+            const nextSibling = myTwinElement.nextElementSibling;
+            if (nextSibling && nextSibling.textContent.includes('Connect Wallet')) {
+              // 如果下一個元素是 Connect Wallet，在它前面插入
+              myTwinElement.parentNode.insertBefore(airdropLink, nextSibling);
+            } else {
+              // 否則直接插入到 MY TWIN 後面
+              myTwinElement.parentNode.insertBefore(airdropLink, myTwinElement.nextSibling);
+            }
+            
+            console.log('Airdrop link added successfully');
+          }
+        } else {
+          console.log('Airdrop link already exists');
+        }
+      } else {
+        console.log('MY TWIN element not found');
+      }
+    } else {
+      console.log('Navigation container not found');
+    }
   }
 
-  // 監聽頁面載入完成
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', addAirdropLink);
-  } else {
-    addAirdropLink();
-  }
+  // 使用 MutationObserver 來監聽 DOM 變化
+  const navObserver = new MutationObserver(function(mutations) {
+    let shouldTryAdd = false;
+    
+    mutations.forEach(function(mutation) {
+      if (mutation.addedNodes && mutation.addedNodes.length > 0) {
+        for (let i = 0; i < mutation.addedNodes.length; i++) {
+          const newNode = mutation.addedNodes[i];
+          if (newNode.nodeType === 1) { // ELEMENT_NODE
+            // 檢查是否包含導航相關內容
+            if (newNode.textContent && (
+                newNode.textContent.includes('MY TWIN') || 
+                newNode.textContent.includes('TASKS') ||
+                newNode.textContent.includes('WHITEPAPER')
+            )) {
+              shouldTryAdd = true;
+              break;
+            }
+          }
+        }
+      }
+    });
+    
+    if (shouldTryAdd) {
+      setTimeout(addAirdropLink, 100); // 短暫延遲確保 DOM 穩定
+    }
+  });
+
+  // 開始觀察整個文檔的變化
+  navObserver.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+  // 立即嘗試添加
+  addAirdropLink();
+  
+  // 也在不同時間點嘗試添加
+  setTimeout(addAirdropLink, 500);
+  setTimeout(addAirdropLink, 1000);
+  setTimeout(addAirdropLink, 2000);</parameter>
 
   // 處理現有按鈕點擊
   document.addEventListener('click', function(e) {
