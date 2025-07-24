@@ -75,6 +75,45 @@ window.addEventListener('DOMContentLoaded', function() {
     subtree: true
   });
 
+  // 添加 Airdrop 導航連結
+  function addAirdropLink() {
+    // 等待 React 渲染完成
+    setTimeout(() => {
+      const nav = document.querySelector('nav.flex.items-center.justify-between');
+      if (nav) {
+        // 查找包含導航連結的容器
+        const navLinks = nav.querySelector('div:last-child');
+        if (navLinks) {
+          // 查找 MY TWIN 連結
+          const myTwinLink = Array.from(navLinks.children).find(child => 
+            child.textContent && child.textContent.includes('MY TWIN')
+          );
+          
+          if (myTwinLink) {
+            // 創建 Airdrop 連結
+            const airdropLink = document.createElement('a');
+            airdropLink.href = '#airdrop';
+            airdropLink.textContent = 'AIRDROP';
+            airdropLink.className = myTwinLink.className; // 使用相同的樣式類
+            airdropLink.style.cssText = myTwinLink.style.cssText; // 複製內聯樣式
+            
+            // 在 MY TWIN 後面插入 Airdrop 連結
+            myTwinLink.parentNode.insertBefore(airdropLink, myTwinLink.nextSibling);
+            
+            console.log('Airdrop link added successfully');
+          }
+        }
+      }
+    }, 1000); // 延遲 1 秒等待頁面完全載入
+  }
+
+  // 監聽頁面載入完成
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addAirdropLink);
+  } else {
+    addAirdropLink();
+  }
+
   // 處理現有按鈕點擊
   document.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
